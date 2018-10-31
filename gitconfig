@@ -1,0 +1,59 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Ricardo Bevilacqua
+	email = ricardo.bevilacqua@mercadolibre.com
+[alias]
+	co = checkout
+	c = commit --verbose
+	ca = commit -a --verbose
+	cp = commit --verbose -p
+	ec = config --global -e
+	cob = checkout -b
+	l = log --oneline --graph
+	s = status
+	b = branch
+	
+	pod = pull origin develop
+	rod = pull --rebase origin develop
+	riod = pull --rebase=interactive origin develop
+	pom = pull origin master
+	rom = pull --rebase origin master
+	riom = pull --rebase=interactive origin master
+	
+	ri = rebase -i
+	pud = pull upstream develop
+	po = pull origin
+	d = diff
+	a = add
+	btd = git co develop && git pull --prune
+	save = !git add -A && git commit -m 'SAVEPOINT'
+	undo = reset HEAD~1 --mixed
+	amend = commit --amend
+	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+        empty = commit --allow-empty -m	
+	bclean = "!f() { git branch --merged ${1-develop} | grep -v " ${1-develop}$" | grep -v " ${1-master}$" | xargs git branch -d; }; f"
+	
+[push]
+	default = simple
+
+
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[url "git@github.com:"]
+	insteadOf = https://github.com/
