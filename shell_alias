@@ -1,0 +1,5 @@
+alias gs='git s'
+alias c='clear'
+alias gs="git status"
+alias gl="git l"
+alias tt="mvn clean package && git a . && git c"
